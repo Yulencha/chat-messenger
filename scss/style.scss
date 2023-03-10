@@ -1,0 +1,300 @@
+@import "_nullstyle";
+@import "_fonts";
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap");
+
+$message_color: #5d5fef;
+$border_color: #a5a6f6;
+$btm_color: #7879f1;
+$active_color: #e1e2ff;
+$dark: #333333;
+$grey: #aaaaaa;
+
+body {
+    font-family: "Roboto", sans-serif;
+    color: $message_color;
+}
+
+header {
+    height: 80px;
+    background: $message_color;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.user {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    &__notifications {
+        margin-right: 40px;
+    }
+
+    &__profile {
+        margin-right: 40px;
+    }
+}
+main {
+    display: flex;
+    flex-direction: row;
+    margin: 40px 0;
+    height: calc(100% - 165px);
+}
+.nav-chats {
+    width: 250px;
+    padding: 0 10px;
+    height: auto;
+    &__item {
+        margin-bottom: 10px;
+        padding: 6px 19px;
+        gap: 10px;
+        height: 38px;
+
+        box-shadow: 0px 0px 4px $active_color;
+        border-radius: 5px;
+        @extend %Roboto_fz15_500;
+        letter-spacing: 0.46px;
+    }
+
+    &__item_active {
+        background: $active_color;
+    }
+}
+.messages-box {
+    height: auto;
+    border: 1px solid $active_color;
+    border-radius: 20px;
+    margin-right: 50px;
+    padding: 20px 30px;
+    display: flex;
+    flex-direction: column;
+}
+.communication {
+    flex-grow: 2;
+    overflow: auto;
+}
+.message {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px;
+    &__name {
+        @extend %Roboto_fz14_500;
+        color: $dark;
+        margin-bottom: 10px;
+    }
+
+    &__date {
+        @extend %Roboto_fz10_100;
+        color: $dark;
+    }
+
+    &__text {
+        @extend %Roboto_fz12_400;
+        padding: 8px 12px;
+        border: 1px solid $border_color;
+        border-radius: 10px;
+        margin: 8px 0;
+    }
+
+    &__trash {
+        margin: 0 8px;
+    }
+
+    &__wrap {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+    }
+}
+.like {
+    &__counter {
+        @extend %Roboto_fz10_400;
+        color: $dark;
+    }
+}
+.letter {
+    margin-top: 30px;
+    width: calc(100% - 48px);
+    &__box {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    &__name {
+        @extend %Roboto_fz12_400;
+        color: $message_color;
+        padding: 8px 12px;
+        border: 1px solid $border_color;
+        border-radius: 10px;
+        margin-right: 10px;
+    }
+
+    &__name::placeholder {
+        @extend %Roboto_fz12_400;
+        color: $grey;
+    }
+
+    &__checkbox {
+        margin-left: 40px;
+        margin-right: 10px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    &__checkbox-text {
+        @extend %Roboto_fz12_400;
+        margin-left: 10px;
+        color: $dark;
+    }
+
+    &__date {
+        @extend %Roboto_fz12_400;
+        color: $dark;
+    }
+
+    &__send {
+        width: 105px;
+        height: 40px;
+        color: #fff;
+        @extend %Roboto_fz14_700;
+        background: $btm_color;
+        border-radius: 10px;
+    }
+
+    &__text {
+        margin-top: 30px;
+        margin-bottom: 10px;
+    }
+
+    &__text textarea {
+        @extend %Roboto_fz12_400;
+        color: $message_color;
+        padding: 8px 12px;
+        border: 1px solid $border_color;
+        border-radius: 10px;
+        width: 100%;
+        resize: none;
+    }
+
+    &__text textarea::placeholder {
+        @extend %Roboto_fz12_400;
+        color: $grey;
+    }
+
+    &__validation {
+        @extend %Roboto_fz12_400;
+        color: $grey;
+    }
+    &__wrap {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+// .checkbox {
+//     visibility: hidden;
+// }
+// .checkbox-group {
+//     position: relative;
+//     width: 48px;
+//     height: 24px;
+// }
+// .checkbox-back {
+//     position: absolute;
+//     left: 0;
+//     top: 0;
+//     width: 48px;
+//     height: 24px;
+//     // background: #ffffff;
+//     border: 2px solid $grey;
+//     border-radius: 12px;
+//     transition: all 0.4s ease;
+// }
+
+// .checkbox-label {
+//     display: block;
+//     width: 12px;
+//     height: 12px;
+//     border-radius: 50%;
+//     background: $grey;
+//     position: absolute;
+//     top: 6px;
+//     z-index: 2;
+//     left: 6px;
+//     transition: all 0.4s ease;
+//     cursor: pointer;
+// }
+
+// .checkbox-check {
+//     position: absolute;
+//     top: 8px;
+//     left: 9px;
+//     z-index: 1;
+// }
+
+// .checkbox:checked ~ .checkbox-back {
+//     background: $btm_color;
+//     border: 2px solid $btm_color;
+// }
+
+// .checkbox:checked + .checkbox-label {
+//     left: 30px;
+//     background-color: #ffffff;
+// }
+
+.checkbox-group {
+    position: relative;
+    width: 48px;
+    height: 24px;
+
+    &__checkbox {
+        visibility: hidden;
+    }
+
+    &__label {
+        display: block;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: $grey;
+        position: absolute;
+        top: 6px;
+        z-index: 2;
+        left: 6px;
+        transition: all 0.4s ease;
+        cursor: pointer;
+    }
+
+    &__check {
+        position: absolute;
+        top: 8px;
+        left: 9px;
+        z-index: 1;
+    }
+
+    &__background {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 48px;
+        height: 24px;
+        border: 2px solid $grey;
+        border-radius: 12px;
+        transition: all 0.4s ease;
+    }
+
+    &__checkbox:checked ~ &__background {
+        background: $btm_color;
+        border: 2px solid $btm_color;
+    }
+
+    &__checkbox:checked ~ &__label {
+        left: 30px;
+        background-color: #ffffff;
+    }
+}
