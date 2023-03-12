@@ -210,8 +210,19 @@ main {
   align-items: center;
 }
 
+.like {
+  width: -moz-fit-content;
+  width: fit-content;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
 .like__counter {
   color: #333333;
+  margin-left: 5px;
+}
+.like__svg_active {
+  fill: #e1e2ff;
 }
 
 .letter {
@@ -229,6 +240,10 @@ main {
   border: 1px solid #a5a6f6;
   border-radius: 10px;
   margin-right: 10px;
+  width: 200px;
+}
+.letter__name:focus {
+  box-shadow: 0 0 3px 0 #070855;
 }
 .letter__name::-moz-placeholder {
   color: #aaaaaa;
@@ -238,7 +253,7 @@ main {
 }
 .letter__checkbox {
   margin-left: 40px;
-  margin-right: 10px;
+  margin-right: 20px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -257,6 +272,12 @@ main {
   background: #7879f1;
   border-radius: 10px;
 }
+.letter__send:hover {
+  box-shadow: 0 0 3px 0 #070855;
+}
+.letter__send:active {
+  box-shadow: 0 0 7px 0 #070855;
+}
 .letter__text {
   margin-top: 30px;
   margin-bottom: 10px;
@@ -268,6 +289,10 @@ main {
   border-radius: 10px;
   width: 100%;
   resize: none;
+  white-space: pre;
+}
+.letter__text textarea:focus {
+  box-shadow: 0 0 3px 0 #070855;
 }
 .letter__text textarea::-moz-placeholder {
   color: #aaaaaa;
@@ -311,6 +336,7 @@ main {
   top: 8px;
   left: 9px;
   z-index: 1;
+  visibility: hidden;
 }
 .checkbox-group__background {
   position: absolute;
@@ -321,6 +347,9 @@ main {
   border: 2px solid #aaaaaa;
   border-radius: 12px;
   transition: all 0.4s ease;
+}
+.checkbox-group__checkbox:checked ~ .checkbox-group__check {
+  visibility: visible;
 }
 .checkbox-group__checkbox:checked ~ .checkbox-group__background {
   background: #7879f1;

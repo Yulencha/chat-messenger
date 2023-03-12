@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/style.css" />
     <script src="./js/scripts.js" defer></script>
-    <!--defer - запускает код в js после прогрузки всей страницы-->
     <title></title>
   </head>
   <body>
@@ -28,19 +27,35 @@
       <div class="messages-box">
         <div class="communication">
           <div class="message">
-            <div class="message__name">Джонатан</div>
-            <div class="message__date">08.12.21</div>
+            <div class="message__name">Юлия</div>
+            <div class="message__date">10.03.2023, в 23:40</div>
             <div class="message__wrap">
               <div class="message__text">
-                Lorem Ipsum has been the industry's standard dummy text ever
-                since the 1500s
+                Привет! Это стартовое сообщение. Можешь набрать свое.
               </div>
               <div class="message__trash">
-                <img src="./img/trash.svg" alt="trash" />
+                <img
+                  onclick="deleteMessage()"
+                  src="./img/trash.svg"
+                  alt="trash"
+                />
               </div>
             </div>
-            <div class="like">
-              <img src="./img/like_empty.svg" alt="like" />
+            <div onclick="like()" class="like">
+              <svg
+                width="18"
+                height="16"
+                viewBox="0 0 18 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M15.63 2.4575C15.247 2.07426 14.7921 1.77024 14.2915 1.56282C13.7909 1.35539 13.2544 1.24863 12.7125 1.24863C12.1707 1.24863 11.6341 1.35539 11.1335 1.56282C10.6329 1.77024 10.1781 2.07426 9.79503 2.4575L9.00003 3.2525L8.20503 2.4575C7.43126 1.68373 6.3818 1.24904 5.28753 1.24904C4.19325 1.24904 3.1438 1.68373 2.37003 2.4575C1.59626 3.23127 1.16156 4.28073 1.16156 5.375C1.16156 6.46928 1.59626 7.51873 2.37003 8.2925L3.16503 9.0875L9.00003 14.9225L14.835 9.0875L15.63 8.2925C16.0133 7.90944 16.3173 7.45461 16.5247 6.95402C16.7321 6.45343 16.8389 5.91687 16.8389 5.375C16.8389 4.83314 16.7321 4.29658 16.5247 3.79599C16.3173 3.29539 16.0133 2.84057 15.63 2.4575V2.4575Z"
+                  stroke="#7879F1"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
               <span class="like__counter"></span>
             </div>
           </div>
@@ -61,11 +76,28 @@
                 tristique massa fringilla sit.
               </div>
               <div class="message__trash">
-                <img src="./img/trash.svg" alt="trash" />
+                <img
+                  onclick="deleteMessage()"
+                  src="./img/trash.svg"
+                  alt="trash"
+                />
               </div>
             </div>
-            <div class="like">
-              <img src="./img/like_empty.svg" alt="like" />
+            <div onclick="like()" class="like">
+              <svg
+                width="18"
+                height="16"
+                viewBox="0 0 18 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M15.63 2.4575C15.247 2.07426 14.7921 1.77024 14.2915 1.56282C13.7909 1.35539 13.2544 1.24863 12.7125 1.24863C12.1707 1.24863 11.6341 1.35539 11.1335 1.56282C10.6329 1.77024 10.1781 2.07426 9.79503 2.4575L9.00003 3.2525L8.20503 2.4575C7.43126 1.68373 6.3818 1.24904 5.28753 1.24904C4.19325 1.24904 3.1438 1.68373 2.37003 2.4575C1.59626 3.23127 1.16156 4.28073 1.16156 5.375C1.16156 6.46928 1.59626 7.51873 2.37003 8.2925L3.16503 9.0875L9.00003 14.9225L14.835 9.0875L15.63 8.2925C16.0133 7.90944 16.3173 7.45461 16.5247 6.95402C16.7321 6.45343 16.8389 5.91687 16.8389 5.375C16.8389 4.83314 16.7321 4.29658 16.5247 3.79599C16.3173 3.29539 16.0133 2.84057 15.63 2.4575V2.4575Z"
+                  stroke="#7879F1"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
               <span class="like__counter"></span>
             </div>
           </div>
@@ -75,11 +107,29 @@
             <div class="message__wrap">
               <div class="message__text">XO</div>
               <div class="message__trash">
-                <img src="./img/trash.svg" alt="trash" />
+                <img
+                  onclick="deleteMessage()"
+                  src="./img/trash.svg"
+                  alt="trash"
+                />
               </div>
             </div>
-            <div class="like">
-              <img src="./img/like_fill.svg" alt="like" />
+            <div onclick="like()" class="like">
+              <svg
+                class="like__svg_active"
+                width="18"
+                height="16"
+                viewBox="0 0 18 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M15.63 2.4575C15.247 2.07426 14.7921 1.77024 14.2915 1.56282C13.7909 1.35539 13.2544 1.24863 12.7125 1.24863C12.1707 1.24863 11.6341 1.35539 11.1335 1.56282C10.6329 1.77024 10.1781 2.07426 9.79503 2.4575L9.00003 3.2525L8.20503 2.4575C7.43126 1.68373 6.3818 1.24904 5.28753 1.24904C4.19325 1.24904 3.1438 1.68373 2.37003 2.4575C1.59626 3.23127 1.16156 4.28073 1.16156 5.375C1.16156 6.46928 1.59626 7.51873 2.37003 8.2925L3.16503 9.0875L9.00003 14.9225L14.835 9.0875L15.63 8.2925C16.0133 7.90944 16.3173 7.45461 16.5247 6.95402C16.7321 6.45343 16.8389 5.91687 16.8389 5.375C16.8389 4.83314 16.7321 4.29658 16.5247 3.79599C16.3173 3.29539 16.0133 2.84057 15.63 2.4575V2.4575Z"
+                  stroke="#7879F1"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
               <span class="like__counter">999</span>
             </div>
           </div>
@@ -100,11 +150,28 @@
                 tristique massa fringilla sit.
               </div>
               <div class="message__trash">
-                <img src="./img/trash.svg" alt="trash" />
+                <img
+                  onclick="deleteMessage()"
+                  src="./img/trash.svg"
+                  alt="trash"
+                />
               </div>
             </div>
-            <div class="like">
-              <img src="./img/like_empty.svg" alt="like" />
+            <div onclick="like()" class="like">
+              <svg
+                width="18"
+                height="16"
+                viewBox="0 0 18 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M15.63 2.4575C15.247 2.07426 14.7921 1.77024 14.2915 1.56282C13.7909 1.35539 13.2544 1.24863 12.7125 1.24863C12.1707 1.24863 11.6341 1.35539 11.1335 1.56282C10.6329 1.77024 10.1781 2.07426 9.79503 2.4575L9.00003 3.2525L8.20503 2.4575C7.43126 1.68373 6.3818 1.24904 5.28753 1.24904C4.19325 1.24904 3.1438 1.68373 2.37003 2.4575C1.59626 3.23127 1.16156 4.28073 1.16156 5.375C1.16156 6.46928 1.59626 7.51873 2.37003 8.2925L3.16503 9.0875L9.00003 14.9225L14.835 9.0875L15.63 8.2925C16.0133 7.90944 16.3173 7.45461 16.5247 6.95402C16.7321 6.45343 16.8389 5.91687 16.8389 5.375C16.8389 4.83314 16.7321 4.29658 16.5247 3.79599C16.3173 3.29539 16.0133 2.84057 15.63 2.4575V2.4575Z"
+                  stroke="#7879F1"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
               <span class="like__counter"></span>
             </div>
           </div>
@@ -125,11 +192,28 @@
                 tristique massa fringilla sit.
               </div>
               <div class="message__trash">
-                <img src="./img/trash.svg" alt="trash" />
+                <img
+                  onclick="deleteMessage()"
+                  src="./img/trash.svg"
+                  alt="trash"
+                />
               </div>
             </div>
-            <div class="like">
-              <img src="./img/like_empty.svg" alt="like" />
+            <div onclick="like()" class="like">
+              <svg
+                width="18"
+                height="16"
+                viewBox="0 0 18 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M15.63 2.4575C15.247 2.07426 14.7921 1.77024 14.2915 1.56282C13.7909 1.35539 13.2544 1.24863 12.7125 1.24863C12.1707 1.24863 11.6341 1.35539 11.1335 1.56282C10.6329 1.77024 10.1781 2.07426 9.79503 2.4575L9.00003 3.2525L8.20503 2.4575C7.43126 1.68373 6.3818 1.24904 5.28753 1.24904C4.19325 1.24904 3.1438 1.68373 2.37003 2.4575C1.59626 3.23127 1.16156 4.28073 1.16156 5.375C1.16156 6.46928 1.59626 7.51873 2.37003 8.2925L3.16503 9.0875L9.00003 14.9225L14.835 9.0875L15.63 8.2925C16.0133 7.90944 16.3173 7.45461 16.5247 6.95402C16.7321 6.45343 16.8389 5.91687 16.8389 5.375C16.8389 4.83314 16.7321 4.29658 16.5247 3.79599C16.3173 3.29539 16.0133 2.84057 15.63 2.4575V2.4575Z"
+                  stroke="#7879F1"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
               <span class="like__counter"></span>
             </div>
           </div>
@@ -150,11 +234,28 @@
                 tristique massa fringilla sit.
               </div>
               <div class="message__trash">
-                <img src="./img/trash.svg" alt="trash" />
+                <img
+                  onclick="deleteMessage()"
+                  src="./img/trash.svg"
+                  alt="trash"
+                />
               </div>
             </div>
-            <div class="like">
-              <img src="./img/like_empty.svg" alt="like" />
+            <div onclick="like()" class="like">
+              <svg
+                width="18"
+                height="16"
+                viewBox="0 0 18 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M15.63 2.4575C15.247 2.07426 14.7921 1.77024 14.2915 1.56282C13.7909 1.35539 13.2544 1.24863 12.7125 1.24863C12.1707 1.24863 11.6341 1.35539 11.1335 1.56282C10.6329 1.77024 10.1781 2.07426 9.79503 2.4575L9.00003 3.2525L8.20503 2.4575C7.43126 1.68373 6.3818 1.24904 5.28753 1.24904C4.19325 1.24904 3.1438 1.68373 2.37003 2.4575C1.59626 3.23127 1.16156 4.28073 1.16156 5.375C1.16156 6.46928 1.59626 7.51873 2.37003 8.2925L3.16503 9.0875L9.00003 14.9225L14.835 9.0875L15.63 8.2925C16.0133 7.90944 16.3173 7.45461 16.5247 6.95402C16.7321 6.45343 16.8389 5.91687 16.8389 5.375C16.8389 4.83314 16.7321 4.29658 16.5247 3.79599C16.3173 3.29539 16.0133 2.84057 15.63 2.4575V2.4575Z"
+                  stroke="#7879F1"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
               <span class="like__counter"></span>
             </div>
           </div>
@@ -164,10 +265,14 @@
             <div class="letter__wrap">
               <div class="letter__box">
                 <input
+                  required
+                  minlength="3"
+                  tabindex="1"
                   class="letter__name"
+                  name="letter__name"
                   type="text"
                   autocomplete="on"
-                  placeholder="Введите имя*"
+                  placeholder="Введите имя (обязательно)"
                 />
                 <div class="letter__checkbox">
                   <div class="checkbox-group">
@@ -175,6 +280,7 @@
                       type="checkbox"
                       class="checkbox-group__checkbox"
                       id="checkbox"
+                      name="letter__checkbox"
                     />
                     <label for="checkbox" class="checkbox-group__label"></label>
                     <div class="checkbox-group__check">
@@ -184,14 +290,21 @@
                   </div>
                   <div class="letter__checkbox-text">Ввести дату</div>
                 </div>
-                <input class="letter__date" type="date" name="date" />
+                <input class="letter__date" type="date" name="letter__date" />
               </div>
-              <button class="letter__send">Отправить</button>
+              <input class="letter__send" type="submit" />
             </div>
             <div class="letter__text">
-              <textarea placeholder="Введите сообщение*"></textarea>
+              <textarea
+                required
+                tabindex="2"
+                cols="116"
+                wrap="hard"
+                name="letter__text"
+                placeholder="Введите сообщение (обязательно)"
+              ></textarea>
             </div>
-            <div class="letter__validation">* обязательно для заполнения</div>
+            <div class="letter__validation"></div>
           </form>
         </div>
       </div>
