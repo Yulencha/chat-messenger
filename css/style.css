@@ -104,7 +104,7 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 16px;
 }
 
-.letter__send {
+.letter__send, .nav-chats__btn-add {
   font-weight: 700;
   font-size: 14px;
   line-height: 16px;
@@ -153,18 +153,54 @@ main {
   width: 250px;
   padding: 0 10px;
   height: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
 }
 .nav-chats__item {
   margin-bottom: 10px;
-  padding: 6px 19px;
-  gap: 10px;
+  padding: 6px 6px 6px 19px;
   height: 38px;
   box-shadow: 0px 0px 4px #e1e2ff;
   border-radius: 5px;
   letter-spacing: 0.46px;
+  display: flex;
+  justify-content: space-between;
 }
 .nav-chats__item_active {
   background: #e1e2ff;
+}
+.nav-chats__btn-change {
+  text-align: right;
+  width: 20px;
+  background: none;
+  color: #5d5fef;
+  font-size: 20px;
+  opacity: 0;
+}
+.nav-chats__btn-change:hover {
+  opacity: 1;
+}
+.nav-chats__btn-add {
+  min-width: 50px;
+  height: 40px;
+  color: #fff;
+  background: #7879f1;
+  border-radius: 10px;
+  align-self: flex-end;
+}
+.nav-chats__btn-add::after {
+  content: "+";
+}
+.nav-chats__btn-add:hover {
+  box-shadow: 0 0 3px 0 #070855;
+}
+.nav-chats__btn-add:hover::after {
+  content: "Создать новый чат";
+  padding: 0 10px;
+}
+.nav-chats__btn-add:active {
+  box-shadow: 0 0 7px 0 #070855;
 }
 
 .messages-box {
@@ -175,11 +211,16 @@ main {
   padding: 20px 30px;
   display: flex;
   flex-direction: column;
+  flex-grow: 2;
 }
 
 .communication {
   flex-grow: 2;
   overflow: auto;
+  display: none;
+}
+.communication_active {
+  display: block;
 }
 
 .message {

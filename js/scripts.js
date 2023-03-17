@@ -2,7 +2,7 @@ let form = document.forms.letter;
 let checkbox = form.elements.checkbox;
 let calendar = form.elements.letter__date;
 
-function hideCalendar(form) {
+function hideCalendar() {
   if (checkbox.checked == false) {
     calendar.hidden = true;
   }
@@ -11,18 +11,18 @@ function hideCalendar(form) {
   }
 }
 
-hideCalendar(form);
+hideCalendar();
 
 checkbox.onchange = hideCalendar;
 
 function deleteMessage(event) {
-  let trash = this.event.currentTarget;
-  let message = trash.parentNode.parentNode.parentNode;
+  let trash = event.target;
+  let message = trash.closest(".message");
   message.remove();
 }
 
 function like(event) {
-  let parent = this.event.currentTarget;
+  let parent = event.currentTarget;
   let counter = parent.lastElementChild;
   let svg = parent.firstElementChild;
   let value = +counter.innerHTML;
@@ -48,7 +48,7 @@ function cleanForm(form) {
   formName.value = "";
   text.value = "";
   checkbox.checked = false;
-  hideCalendar(form);
+  hideCalendar();
 }
 
 function makeMessage(msg) {
@@ -65,13 +65,13 @@ function makeMessage(msg) {
               <div class="message__text">${text}</div>
               <div class="message__trash">
                 <img
-                  onclick="deleteMessage()"
+                  onclick="deleteMessage(event)"
                   src="./img/trash.svg"
                   alt="trash"
                 />
               </div>
             </div>
-            <div onclick="like()" class="like">
+            <div onclick="like(event)" class="like">
               <svg
                 width="18"
                 height="16"
@@ -141,7 +141,7 @@ function submitHandler(event) {
   let msg = getMessageFromForm(form);
   cleanForm(form);
   let div = makeMessage(msg);
-  let communication = document.querySelector(".communication");
+  let communication = document.querySelector(".communication_active");
   communication.append(div);
   communication.scrollTop = communication.scrollHeight;
 }
@@ -154,3 +154,22 @@ document.addEventListener("keydown", (event) => {
     submitHandler(event);
   }
 });
+
+let chatsList = document.querySelector(".nav-chats__box");
+chatsList.onclick = function (event) {
+  let chatDiv = event.target.closest(".nav-chats__item");
+  console.log(event.target);
+  let btn = event.target.closest(".nav-chats__btn-change");
+  if (chatDiv != null && event.target != btn) {
+    Array.from(chatsList.children).forEach((element) => {
+      element.classList.remove("nav-chats__item_active");
+      let num = element.dataset.chatid;
+      let communication = document.querySelector(`[data-chat='${num}'`);
+      communication.classList.remove("communication_active");
+    });
+    chatDiv.classList.add("nav-chats__item_active");
+    let numID = chatDiv.dataset.chatid;
+    let communication = document.querySelector(`[data-chat='${numID}'`);
+    communication.classList.add("communication_active");
+  }
+};
