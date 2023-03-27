@@ -16,9 +16,20 @@ hideCalendar();
 checkbox.onchange = hideCalendar;
 
 function deleteMessage(event) {
-  let trash = event.target;
-  let message = trash.closest(".message");
+  let del = event.target;
+  let message = del.closest(".message");
   message.remove();
+}
+
+function deleteChat(event) {
+  let del = event.target;
+  let chat = del.closest(".nav-chats__item");
+  // chat.remove();
+}
+
+function editChat(event) {
+  let edit = event.target;
+  let chat = edit.closest(".nav-chats__item");
 }
 
 function like(event) {
@@ -63,11 +74,11 @@ function makeMessage(msg) {
             <div class="message__date">${day}</div>
             <div class="message__wrap">
               <div class="message__text">${text}</div>
-              <div class="message__trash">
+              <div class="message__delete">
                 <img
                   onclick="deleteMessage(event)"
-                  src="./img/trash.svg"
-                  alt="trash"
+                  src="./img/delete.svg"
+                  alt="delete"
                 />
               </div>
             </div>
@@ -158,18 +169,66 @@ document.addEventListener("keydown", (event) => {
 let chatsList = document.querySelector(".nav-chats__box");
 chatsList.onclick = function (event) {
   let chatDiv = event.target.closest(".nav-chats__item");
-  console.log(event.target);
+  // console.log(event.target);
   let btn = event.target.closest(".nav-chats__btn-change");
   if (chatDiv != null && event.target != btn) {
     Array.from(chatsList.children).forEach((element) => {
       element.classList.remove("nav-chats__item_active");
-      let num = element.dataset.chatid;
-      let communication = document.querySelector(`[data-chat='${num}'`);
+      let num = element.dataset.chat;
+      let communication = document.querySelector(
+        `.communication[data-chat='${num}']`
+      );
       communication.classList.remove("communication_active");
     });
     chatDiv.classList.add("nav-chats__item_active");
-    let numID = chatDiv.dataset.chatid;
-    let communication = document.querySelector(`[data-chat='${numID}'`);
+    let num = chatDiv.dataset.chat;
+    let communication = document.querySelector(
+      `.communication[data-chat='${num}']`
+    );
     communication.classList.add("communication_active");
   }
+};
+
+let btnAddChat = document.querySelector(".nav-chats__btn-add");
+
+btnAddChat.onclick = function () {
+  let navChats = Array.from(
+    document.querySelectorAll(".nav-chats__item[data-chat]")
+  );
+  let chatNumber = 0;
+  if (navChats.length > 0) {
+    navChats.forEach((element) => {
+      let num = Number(element.dataset.chat);
+      chatNumber = num > chatNumber ? num : chatNumber;
+    });
+  }
+  chatNumber = chatNumber + 1;
+
+  let chat = document.createElement("div");
+  chat.className = "nav-chats__item";
+  chat.dataset.chat = chatNumber;
+  chat.innerHTML = `<span>Чат${chatNumber + 1}</span>
+      <div class="nav-chats__btn">
+        <div class="nav-chats__edit">
+          <img onclick="editChat(event)" src="./img/edit.svg" alt="edit" />
+        </div>
+        <div class="nav-chats__delete">
+          <img
+            width="24px"
+            height="24px"
+            onclick="deleteChat(event)"
+            src="./img/delete.svg"
+            alt="delete"
+          />
+        </div>
+      </div>`;
+  chatsList.append(chat);
+
+  let comm = document.createElement("div");
+  comm.className = "communication";
+  comm.dataset.chat = chatNumber;
+
+  let commList = document.querySelector(".messages-box__box");
+
+  commList.append(comm);
 };
