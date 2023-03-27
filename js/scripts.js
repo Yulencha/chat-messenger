@@ -166,26 +166,22 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
+let commList = document.querySelector(".messages-box__box");
 let chatsList = document.querySelector(".nav-chats__box");
 chatsList.onclick = function (event) {
   let chatDiv = event.target.closest(".nav-chats__item");
-  // console.log(event.target);
   let btn = event.target.closest(".nav-chats__btn-change");
   if (chatDiv != null && event.target != btn) {
     Array.from(chatsList.children).forEach((element) => {
       element.classList.remove("nav-chats__item_active");
       let num = element.dataset.chat;
-      let communication = document.querySelector(
-        `.communication[data-chat='${num}']`
-      );
-      communication.classList.remove("communication_active");
+      let comm = document.querySelector(`.communication[data-chat='${num}']`);
+      comm.classList.remove("communication_active");
     });
     chatDiv.classList.add("nav-chats__item_active");
     let num = chatDiv.dataset.chat;
-    let communication = document.querySelector(
-      `.communication[data-chat='${num}']`
-    );
-    communication.classList.add("communication_active");
+    let comm = document.querySelector(`.communication[data-chat='${num}']`);
+    comm.classList.add("communication_active");
   }
 };
 
@@ -201,8 +197,8 @@ btnAddChat.onclick = function () {
       let num = Number(element.dataset.chat);
       chatNumber = num > chatNumber ? num : chatNumber;
     });
+    chatNumber = chatNumber + 1;
   }
-  chatNumber = chatNumber + 1;
 
   let chat = document.createElement("div");
   chat.className = "nav-chats__item";
@@ -228,7 +224,44 @@ btnAddChat.onclick = function () {
   comm.className = "communication";
   comm.dataset.chat = chatNumber;
 
-  let commList = document.querySelector(".messages-box__box");
-
   commList.append(comm);
 };
+
+function deleteChat(event) {
+  let del = event.target;
+  let chat = del.closest(".nav-chats__item");
+  let num = chat.dataset.chat;
+
+  let comm = document.querySelector(`.communication[data-chat='${num}']`);
+
+  chat.remove();
+  comm.remove();
+}
+
+function editChat(event) {
+  let edit = event.target;
+  let chat = edit.closest(".nav-chats__item");
+  let name = chat.querySelector("span");
+
+  let area = document.createElement("textarea");
+  area.className = "nav-chats__item_edit";
+  area.value = name.innerHTML;
+
+  area.onkeydown = function (event) {
+    if (event.key == "Enter") {
+      this.blur();
+    }
+  };
+
+  area.onblur = function () {
+    editEnd();
+  };
+
+  name.replaceWith(area);
+  area.focus();
+
+  function editEnd() {
+    name.innerHTML = area.value;
+    area.replaceWith(name);
+  }
+}

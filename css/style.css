@@ -110,7 +110,7 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 16px;
 }
 
-.nav-chats__item {
+.nav-chats__item_edit, .nav-chats__item {
   font-weight: 500;
   font-size: 15px;
   line-height: 26px;
@@ -167,6 +167,10 @@ main {
   display: flex;
   justify-content: space-between;
 }
+.nav-chats__item_edit {
+  background: #e1e2ff;
+  color: #c32ad7;
+}
 .nav-chats__item_active {
   background: #e1e2ff;
 }
@@ -208,6 +212,7 @@ main {
   flex-grow: 2;
   justify-content: space-between;
 }
+
 .communication {
   flex-grow: 2;
   overflow: auto;
